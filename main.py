@@ -149,6 +149,8 @@ def inference(vid_path):
             normalize
         ]
     )
+
+    labels_dict = {0:"drop", 1:"grabbed"}
     
     vidcap = cv2.VideoCapture(vid_path)
     success, image = vidcap.read()
@@ -164,7 +166,7 @@ def inference(vid_path):
         with torch.no_grad():
             logits = model(inputs["pixel_values"], labels=None).logits
             predicted_label = logits.argmax(-1).item()
-        print("Frame: {}, Pred_lbl: {}".format(count, predicted_label))
+        print("Frame: {}, Pred_lbl: {}".format(count, labels_dict[predicted_label]))
         
         # Read the next frame
         success,image = vidcap.read()
