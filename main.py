@@ -3,6 +3,7 @@ import sys
 import cv2
 from PIL import Image
 import numpy as np
+import os
 
 import torch
 import torch.nn as nn
@@ -178,5 +179,8 @@ if __name__ == "__main__":
     if sys.argv[1] == "train": # Training
         train()
     elif sys.argv[1] == "infer": # Inference
-        name = "caseid_000001_fps1.mp4"
-        inference(name)
+        path = "caseid_000001_fps1.mp4"
+        if not os.path.isfile(path):
+            print("The file is not available!")
+            exit(-1)
+        inference(path)
