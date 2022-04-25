@@ -23,6 +23,7 @@ For inference, I am loading the fine-tuned model and then I read each frame of t
 
 ### Model
 Please download the model from this link:
+https://drive.google.com/file/d/1m593nnpuCOJU6rbr9s0JR02pnw6BDpgl/view?usp=sharing
 
 ### Notes
 I felt in most of the videos we have a constant background, I tried to remove them from videos with opencv, but the result was not right for all videos. In order to save time, I didn't dig into it.
